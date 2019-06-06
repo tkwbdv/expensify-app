@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 16px is detault. 16 * 0.625 = 10px -> can use rem with a base10 system
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}

@@ -1,12 +1,22 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import AppRouter from "./routers/AppRouter";
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
+import { addExpense } from "./actions/expenses";
+import "normalize.css";
+import "./styles/styles.scss";
+import 'react-dates/lib/css/_datepicker.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+store.dispatch(addExpense({ description: "Water bill", amount: 500, createdAt: 1566640800000 }));
+store.dispatch(addExpense({ description: "Gas bill", amount: 1000, createdAt: 1558727439695 }));
+store.dispatch(addExpense({ description: "Electricity bill", amount: 1500, createdAt: 1560506400000 }));
+store.dispatch(addExpense({ description: "Rent", amount: 2000, createdAt: 1552302000000 }));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
+  document.getElementById('root'));

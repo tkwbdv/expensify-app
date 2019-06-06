@@ -1,0 +1,11 @@
+{
+  "typeAcquisition": {
+    "include": [
+      "jest",
+      "react"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
