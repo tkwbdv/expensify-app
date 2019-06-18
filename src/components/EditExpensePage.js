@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense, removeExpense } from "../actions/expenses";
+import { editExpense, startRemoveExpense } from "../actions/expenses";
 import NotFoundPage from "./NotFoundPage";
 
-export const EditExpensePage = ({ match, editExpense, removeExpense, expense, history }) => {
+export const EditExpensePage = ({ match, editExpense, startRemoveExpense, expense, history }) => {
   if (!expense) return (
     <NotFoundPage />
   );
@@ -15,7 +15,7 @@ export const EditExpensePage = ({ match, editExpense, removeExpense, expense, hi
   }
 
   const onRemove = () => {
-    removeExpense({ id: match.params.id });
+    startRemoveExpense({ id: match.params.id });
     history.push("/");
   };
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   editExpense: (id, expenseData) => dispatch(editExpense(id, expenseData)),
-  removeExpense: (data) => dispatch(removeExpense(data))
+  startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
