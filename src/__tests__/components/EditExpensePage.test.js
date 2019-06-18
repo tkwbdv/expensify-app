@@ -3,17 +3,17 @@ import { shallow } from "enzyme";
 import { EditExpensePage } from "../../components/EditExpensePage";
 import expenses from "../fixtures/expenses";
 
-let editExpense, startRemoveExpense, match, history, wrapper;
+let startEditExpense, startRemoveExpense, match, history, wrapper;
 
 beforeEach(() => {
-  editExpense = jest.fn();
+  startEditExpense = jest.fn();
   startRemoveExpense = jest.fn();
   match = { params: { id: expenses[2].id } };
   history = { push: jest.fn() };
   wrapper = shallow(
     <EditExpensePage
       match={match}
-      editExpense={editExpense}
+      startEditExpense={startEditExpense}
       startRemoveExpense={startRemoveExpense}
       expense={expenses[2]}
       history={history}
@@ -30,9 +30,9 @@ test("should render NotFoundPage if expense id does not exist", () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test("should handle editExpense", () => {
+test("should handle startEditExpense", () => {
   wrapper.find("ExpenseForm").prop("formData")(expenses[2]);
-  expect(editExpense).toHaveBeenLastCalledWith(match.params.id, expenses[2]);
+  expect(startEditExpense).toHaveBeenLastCalledWith(match.params.id, expenses[2]);
   expect(history.push).toHaveBeenLastCalledWith("/");
 });
 
