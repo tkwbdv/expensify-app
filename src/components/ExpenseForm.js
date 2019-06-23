@@ -38,12 +38,12 @@ const ExpenseForm = ({ formData, expense = {} }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (!description || !amount) {
+    if (!description || description.trim().length === 0 || !amount) {
       setError("Please provide description and amount.");
     } else {
       setError("");
       formData({
-        description,
+        description: description.trim(),
         amount: +(parseFloat(amount) * 100).toFixed(0),
         createdAt: +createdAt,  // momentObject -> unix timestamp
         note
