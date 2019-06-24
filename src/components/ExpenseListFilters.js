@@ -24,33 +24,44 @@ export const ExpenseListFilters = ({ filters, setStartDate, setEndDate, setTextF
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={filters.text}
-        onChange={onTextChange}
-      />
-      <select
-        value={filters.sortBy}
-        onChange={onSortChange}
-      >
-        <option value="amount">Amount</option>
-        <option value="date">Date</option>
-      </select>
-      <DateRangePicker
-        startDate={filters.startDate}
-        startDateId="your_unique_start_date_id"
-        endDate={filters.endDate}
-        endDateId="your_unique_end_date_id"
-        onDatesChange={onDatesChange}
-        focusedInput={focusedInput}
-        onFocusChange={focusedInput => setFocusedInput(focusedInput)}
-        hideKeyboardShortcutsPanel={true}
-        noBorder={true}
-        isOutsideRange={() => false}
-        numberOfMonths={1}
-        showClearDates={true}
-      />
+    <div className="content-container">
+      <div className="input-group">
+        <div className="input-group__item">
+          <input
+            type="text"
+            className="text-input"
+            placeholder="Search expenses"
+            value={filters.text}
+            onChange={onTextChange}
+          />
+        </div>
+        <div className="input-group__item">
+          <select
+            value={filters.sortBy}
+            className="select"
+            onChange={onSortChange}
+          >
+            <option value="amount">Amount</option>
+            <option value="date">Date</option>
+          </select>
+        </div>
+        <div className="input-group__item">
+          <DateRangePicker
+            startDate={filters.startDate}
+            startDateId="your_unique_start_date_id"
+            endDate={filters.endDate}
+            endDateId="your_unique_end_date_id"
+            onDatesChange={onDatesChange}
+            focusedInput={focusedInput}
+            onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+            hideKeyboardShortcutsPanel={true}
+            noBorder={false}
+            isOutsideRange={() => false}
+            numberOfMonths={1}
+            showClearDates={true}
+          />
+        </div>
+      </div>
     </div>
   );
 };

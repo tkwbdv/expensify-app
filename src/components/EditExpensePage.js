@@ -21,12 +21,18 @@ export const EditExpensePage = ({ match, startEditExpense, startRemoveExpense, e
 
   return (
     <div>
-      <h1>Edit Expense</h1>
-      <ExpenseForm
-        formData={formData}
-        expense={expense}
-      />
-      <button onClick={onRemove}>Remove</button>
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title">Edit Expense</h1>
+        </div>
+      </div>
+      <div className="content-container">
+        <ExpenseForm
+          formData={formData}
+          expense={expense}
+        />
+        <button className="button button--secondary" onClick={onRemove}>Remove Expense</button>
+      </div>
     </div>
   );
 };

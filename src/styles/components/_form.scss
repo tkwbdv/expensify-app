@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  .SingleDatePickerInput {
+    display: block;
+
+    .DateInput,
+    .DateInput_1 {
+      width: 100%;
+    }
+  }
+
+  > * {
+    margin-bottom: $m-size;
+  }
+}
+
+.form__error {
+  margin: 0 0 $m-size 0;
+  font-style: italic;
+}

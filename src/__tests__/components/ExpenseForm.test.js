@@ -16,7 +16,7 @@ test("should render ExpenseForm correctly with expense data", () => {
 
 test("should render error for invalid form submission", () => {
   const wrapper = shallow(<ExpenseForm />);
-  const errorElement = <p>Please provide description and amount.</p>;
+  const errorElement = <p className="form__error">Please provide description and amount.</p>;
 
   expect(wrapper.contains(errorElement)).toEqual(false);
   expect(wrapper).toMatchSnapshot();

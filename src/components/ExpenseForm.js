@@ -53,43 +53,47 @@ const ExpenseForm = ({ formData, expense = {} }) => {
 
 
   return (
-    <div>
-      {error && <p>{error}</p>}
-      <form onSubmit={onFormSubmit}>
-        <input
-          placeholder="Description"
-          autoFocus
-          value={description}
-          onChange={onDescriptionChange}
-        />
-        <input
-          placeholder="Amount"
-          type="text"
-          value={amount}
-          onChange={onAmountChange}
-        />
-        <SingleDatePicker
-          date={createdAt}
-          onDateChange={onDateChange}
-          focused={calendarFocused}
-          onFocusChange={({ focused }) => setCalendarFocused(focused)}
-          id="your_unique_id"
-          noBorder={true}
-          numberOfMonths={1}
-          isOutsideRange={() => false}
-          hideKeyboardShortcutsPanel={true}
-        />
-        <textarea
-          placeholder="Add a note for your expense (optional)"
-          value={note}
-          onChange={onNoteChange}
-        />
+    <form className="form" onSubmit={onFormSubmit}>
+      {error && <p className="form__error">{error}</p>}
+      <input
+        placeholder="Description"
+        autoFocus
+        className="text-input"
+        value={description}
+        onChange={onDescriptionChange}
+      />
+      <input
+        placeholder="Amount"
+        type="text"
+        className="text-input"
+        value={amount}
+        onChange={onAmountChange}
+      />
+      <SingleDatePicker
+        date={createdAt}
+        onDateChange={onDateChange}
+        focused={calendarFocused}
+        onFocusChange={({ focused }) => setCalendarFocused(focused)}
+        id="your_unique_id"
+        noBorder={false}
+        numberOfMonths={1}
+        isOutsideRange={() => false}
+        hideKeyboardShortcutsPanel={true}
+      />
+      <textarea
+        placeholder="Add a note for your expense (optional)"
+        value={note}
+        className="textarea"
+        onChange={onNoteChange}
+      />
+      <div>
         <input
           type="submit"
-          value={expense.description ? "Update Expense" : "Create Expense"}
+          className="button"
+          value={expense.description ? "Save Expense" : "Add Expense"}
         />
-      </form>
-    </div >
+      </div>
+    </form>
   )
 };
 
