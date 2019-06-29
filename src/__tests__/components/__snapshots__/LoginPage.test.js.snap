@@ -29,6 +29,13 @@ exports[`should render LoginPage correctly 1`] = `
     >
       Login with Github
     </button>
+    <button
+      className="button"
+      onClick={[Function]}
+      provider="anon"
+    >
+      Login anonymously
+    </button>
   </div>
 </div>
 `;

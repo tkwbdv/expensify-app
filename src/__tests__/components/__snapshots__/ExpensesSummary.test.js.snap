@@ -90,6 +90,18 @@ exports[`should render ExpenseSummary correctly with 1 filtered expense 1`] = `
       <span>
         $25.00
       </span>
+      <div>
+        <h6
+          className="page-header__subtitle"
+        >
+          <span>
+            1
+          </span>
+           
+          expense
+           hidden by filters
+        </h6>
+      </div>
       <div
         className="page-header__actions"
       >
@@ -140,7 +152,7 @@ exports[`should render ExpenseSummary correctly with multiple expenses 1`] = `
 </div>
 `;
 
-exports[`should render ExpenseSummary correctly with multiple filtered expense 1`] = `
+exports[`should render ExpenseSummary correctly with multiple filtered expenses 1`] = `
 <div
   className="page-header"
 >
@@ -160,6 +172,18 @@ exports[`should render ExpenseSummary correctly with multiple filtered expense 1
       <span>
         $25.00
       </span>
+      <div>
+        <h6
+          className="page-header__subtitle"
+        >
+          <span>
+            2
+          </span>
+           
+          expenses
+           hidden by filters
+        </h6>
+      </div>
       <div
         className="page-header__actions"
       >

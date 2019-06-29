@@ -8,11 +8,19 @@ test("should render LoginPage correctly", () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test("should call startLogin on button click", () => {
+test("should call startLogin with different authProviders on button click", () => {
   const startLogin = jest.fn();
   const wrapper = shallow(<LoginPage startLogin={startLogin} />)
   wrapper.find('[provider="google"]').simulate("click");
   expect(startLogin).toHaveBeenLastCalledWith(googleAuthProvider);
   wrapper.find('[provider="github"]').simulate("click");
   expect(startLogin).toHaveBeenLastCalledWith(githubAuthProvider);
+});
+
+test("should call startLogin on button click", () => {
+  const startLogin = jest.fn();
+  const startAnonLogin = jest.fn();
+  const wrapper = shallow(<LoginPage startLogin={startLogin} startAnonLogin={startAnonLogin} />)
+  wrapper.find('[provider="anon"]').simulate("click");
+  expect(startAnonLogin).toHaveBeenCalled();
 });
