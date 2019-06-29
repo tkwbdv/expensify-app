@@ -18,8 +18,16 @@ exports[`should render LoginPage correctly 1`] = `
     <button
       className="button"
       onClick={[Function]}
+      provider="google"
     >
       Login with Google
+    </button>
+    <button
+      className="button"
+      onClick={[Function]}
+      provider="github"
+    >
+      Login with Github
     </button>
   </div>
 </div>

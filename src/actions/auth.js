@@ -1,4 +1,4 @@
-import { firebase, googleAuthProvider } from "../firebase/firebase";
+import { firebase } from "../firebase/firebase";
 
 const login = (uid) => ({
   type: "LOGIN",
@@ -9,9 +9,10 @@ const logout = () => ({
   type: "LOGOUT"
 });
 
-const startLogin = () => {
+const startLogin = (provider) => {
   return () => {
-    return firebase.auth().signInWithPopup(googleAuthProvider);
+    return firebase.auth().signInWithPopup(provider)
+      .catch(error => new Error(error.message));
   };
 };
 

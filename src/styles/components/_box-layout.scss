@@ -14,6 +14,10 @@
   padding: $l-size $m-size;
   text-align: center;
   width: 25rem;
+  .button {
+    margin: 0 0 $s-size;
+    width: 100%;
+  }
 }
 
 .box-layout__title {
