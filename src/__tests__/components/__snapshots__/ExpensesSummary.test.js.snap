@@ -70,7 +70,77 @@ exports[`should render ExpenseSummary correctly with 1 expense 1`] = `
 </div>
 `;
 
+exports[`should render ExpenseSummary correctly with 1 filtered expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        2
+      </span>
+       
+      expenses
+       totalling 
+      <span>
+        $25.00
+      </span>
+      <div
+        className="page-header__actions"
+      >
+        <Link
+          className="button"
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+    </h1>
+  </div>
+</div>
+`;
+
 exports[`should render ExpenseSummary correctly with multiple expenses 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        2
+      </span>
+       
+      expenses
+       totalling 
+      <span>
+        $25.00
+      </span>
+      <div
+        className="page-header__actions"
+      >
+        <Link
+          className="button"
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`should render ExpenseSummary correctly with multiple filtered expense 1`] = `
 <div
   className="page-header"
 >

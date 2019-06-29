@@ -16,3 +16,13 @@ test("should render ExpenseSummary correctly with multiple expenses", () => {
   const wrapper = shallow(<ExpensesSummary expenseCount={2} expensesTotal={2500} />);
   expect(wrapper).toMatchSnapshot();
 });
+
+test("should render ExpenseSummary correctly with 1 filtered expense", () => {
+  const wrapper = shallow(<ExpensesSummary expenseCount={2} expensesTotal={2500} hiddenExpenses={1} />);
+  expect(wrapper).toMatchSnapshot();
+});
+
+test("should render ExpenseSummary correctly with multiple filtered expense", () => {
+  const wrapper = shallow(<ExpensesSummary expenseCount={2} expensesTotal={2500} hiddenExpenses={2} />);
+  expect(wrapper).toMatchSnapshot();
+});
