@@ -38,6 +38,7 @@ test("should handle startEditExpense", () => {
 
 test("should handle startRemoveExpense", () => {
   wrapper.find("button").simulate("click");
+  wrapper.find("ConfirmModal").prop("onRemove")();
   expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: match.params.id });
   expect(history.push).toHaveBeenLastCalledWith("/");
 });

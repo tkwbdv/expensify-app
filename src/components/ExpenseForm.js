@@ -94,7 +94,7 @@ const ExpenseForm = ({ formData, expense = {} }) => {
         />
       </div>
     </form>
-  )
+  );
 };
 
 export default ExpenseForm;

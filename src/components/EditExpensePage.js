@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
 import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 import NotFoundPage from "./NotFoundPage";
+import ConfirmModal from "./ConfirmModal";
 
 export const EditExpensePage = ({ match, startEditExpense, startRemoveExpense, expense, history }) => {
+  const [showModal, setShowModal] = useState(false);
+
   if (!expense) return (
     <NotFoundPage />
   );
@@ -12,10 +15,11 @@ export const EditExpensePage = ({ match, startEditExpense, startRemoveExpense, e
   const formData = (expenseData) => {
     startEditExpense(match.params.id, expenseData);
     history.push("/");
-  }
+  };
 
   const onRemove = () => {
     startRemoveExpense({ id: match.params.id });
+    setShowModal(false);
     history.push("/");
   };
 
@@ -31,8 +35,13 @@ export const EditExpensePage = ({ match, startEditExpense, startRemoveExpense, e
           formData={formData}
           expense={expense}
         />
-        <button className="button button--secondary" onClick={onRemove}>Remove Expense</button>
+        <button className="button button--secondary" onClick={() => setShowModal(true)}>Remove Expense</button>
       </div>
+      <ConfirmModal
+        onCloseModal={() => setShowModal(false)}
+        showModal={showModal}
+        onRemove={onRemove}
+      />
     </div>
   );
 };
