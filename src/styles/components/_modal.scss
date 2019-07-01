@@ -17,6 +17,7 @@
 .modal {
   background: $off-white;
   color: $dark-grey;
+  width: 25rem;
   max-width: 30rem;
   outline: none;
   padding: $l-size;
@@ -29,5 +30,5 @@
 
 .modal__button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }

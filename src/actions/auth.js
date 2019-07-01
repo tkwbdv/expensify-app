@@ -9,19 +9,24 @@ const logout = () => ({
   type: "LOGOUT"
 });
 
-const startLogin = (provider) => {
+const startLogin = (provider, email, password) => {
   return () => {
-    return firebase.auth().signInWithPopup(provider)
-      .catch(error => new Error(error.message));
+    if (provider) {
+      return firebase.auth().signInWithPopup(provider)
+        .catch(error => error.message);
+    } else {
+      return firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch(error => error.message)
+    }
   };
 };
 
-const startAnonLogin = () => {
+const startSignup = (email, password) => {
   return () => {
-    return firebase.auth().signInAnonymously()
-      .catch(error => new Error(error.message));
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(error => error.message);
   };
-};
+}
 
 const startLogout = () => {
   return () => {
@@ -29,4 +34,4 @@ const startLogout = () => {
   };
 };
 
-export { startLogin, startAnonLogin, startLogout, login, logout };
+export { startLogin, startLogout, startSignup, login, logout };

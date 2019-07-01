@@ -32,10 +32,17 @@ exports[`should render LoginPage correctly 1`] = `
     <button
       className="button"
       onClick={[Function]}
-      provider="anon"
+      provider="email"
     >
-      Login anonymously
+      Login with E-mail
     </button>
   </div>
+  <LoginModal
+    contentLabel="Loginform"
+    onCloseModal={[Function]}
+    showModal={false}
+  >
+    <Connect(LoginForm) />
+  </LoginModal>
 </div>
 `;
