@@ -28,8 +28,8 @@ const LoginForm = ({ startLoginDispatch, startSignupDispatch }) => {
       <div className="modal__button-container">
       </div>
       <form className="form">
-        E-Mail: <input type="text" value={email} onChange={onEmailChange} />
-        Password: <input type="text" value={password} onChange={onPasswordChange} />
+        E-Mail: <input type="text" autoFocus value={email} onChange={onEmailChange} />
+        Password: <input type="password" value={password} onChange={onPasswordChange} />
         {error && <p>{error}</p>}
         <div className="modal__button-container">
           <button type="submit" className="button button--confirm" onClick={handleClickLogin}>Login</button>
