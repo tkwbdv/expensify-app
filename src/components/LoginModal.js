@@ -9,8 +9,9 @@ const LoginModal = ({ showModal, onCloseModal, children }) => {
       isOpen={showModal}
       onRequestClose={onCloseModal}
       contentLabel="confirm Remove"
+      overlayClassName="overlay"
       closeTimeoutMS={200}
-      className="modal"
+      className="modal__login"
     >
       {children}
     </Modal>

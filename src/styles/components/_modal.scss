@@ -6,6 +6,15 @@
   transition: opacity 200ms ease-in-out;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .ReactModalPortal .ReactModal__Overlay--after-open {
   opacity: 1;
 }
@@ -16,12 +25,18 @@
 
 .modal {
   background: $off-white;
+  border-radius: 3px;
   color: $dark-grey;
-  width: 25rem;
   max-width: 30rem;
   outline: none;
   padding: $l-size;
   text-align: center;
+  width: 25rem;
+}
+
+.modal__login {
+  @extend .modal;
+  min-height: 34rem;
 }
 
 .modal__title {
@@ -31,4 +46,5 @@
 .modal__button-container {
   display: flex;
   justify-content: center;
+  margin: $l-size 0 0;
 }

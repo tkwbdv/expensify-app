@@ -10,11 +10,17 @@ const LoginForm = ({ startLoginDispatch, startSignupDispatch }) => {
   const onEmailChange = (e) => setEmail(e.target.value);
   const onPasswordChange = (e) => setPassword(e.target.value);
 
-  const handleClickSignup = () => startSignup(email, password)()
-    .then(res => typeof res === "string" ? setError(res) : startSignupDispatch(email, password));
+  const handleClickSignup = (e) => {
+    e.preventDefault();
+    startSignup(email, password)()
+      .then(res => typeof res === "string" ? setError(res) : startSignupDispatch(email, password));
+  };
 
-  const handleClickLogin = () => startLogin(undefined, email, password)()
-    .then(res => typeof res === "string" ? setError(res) : startLoginDispatch(undefined, email, password));
+  const handleClickLogin = (e) => {
+    e.preventDefault();
+    startLogin(undefined, email, password)()
+      .then(res => typeof res === "string" ? setError(res) : startLoginDispatch(undefined, email, password));
+  };
 
   return (
     <div>
@@ -25,11 +31,11 @@ const LoginForm = ({ startLoginDispatch, startSignupDispatch }) => {
         E-Mail: <input type="text" value={email} onChange={onEmailChange} />
         Password: <input type="text" value={password} onChange={onPasswordChange} />
         {error && <p>{error}</p>}
+        <div className="modal__button-container">
+          <button type="submit" className="button button--confirm" onClick={handleClickLogin}>Login</button>
+          <button className="button button--confirm button--secondary" onClick={handleClickSignup}>Signup</button>
+        </div>
       </form>
-      <div className="modal__button-container">
-        <button className="button button--confirm" onClick={handleClickLogin}>Login</button>
-        <button className="button button--confirm button--secondary" onClick={handleClickSignup}>Signup</button>
-      </div>
     </div>
   );
 };

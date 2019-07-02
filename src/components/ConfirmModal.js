@@ -8,9 +8,10 @@ const ConfirmModal = ({ showModal, onCloseModal, onRemove }) => {
     <Modal
       isOpen={showModal}
       onRequestClose={onCloseModal}
-      contentLabel="confirm Remove"
-      closeTimeoutMS={200}
+      overlayClassName="overlay"
       className="modal"
+      closeTimeoutMS={200}
+      contentLabel="confirm Remove"
     >
       <h3 className="modal__title">Remove this expense?</h3>
       <div className="modal__button-container">
